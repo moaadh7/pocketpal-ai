@@ -14,6 +14,7 @@ import {
   serverStore,
   ttsStore,
   uiStore,
+  zicoStore,
 } from '../store';
 import type {GenerationLease} from '../store/generationLease';
 import type {PersistedTurnTimings} from '../utils/completionTypes';
@@ -69,6 +70,7 @@ import {
   type AgentUiState,
   type TokenDelta,
 } from '../services/agent';
+import {searchZicoMemory} from '../services/zicoMemory';
 // Helper function to prepare completion parameters using OpenAI-compatible
 // messages API. Creates the empty `assistant_turn` row up-front so the
 // active-vs-persisted predicate sees the right "last message" before the
@@ -815,6 +817,27 @@ export const useChatSession = (
       pal,
       model: modelStore.activeModel,
     });
+    const activeOrigin = modelStore.activeModel?.origin;
+
+const isLocalModel =
+  activeOrigin === ModelOrigin.LOCAL ||
+  activeOrigin === ModelOrigin.HF;
+
+if (isLocalModel && zicoStore.token) {
+  const memoryContext = await searchZicoMemory(
+    message.text,
+    zicoStore.token,
+  );
+
+  if (memoryContext.trim()) {
+    systemMessages.push({
+      role: 'system',
+      content:
+        'معلومات من ذاكرة Zico AI المحلية. استخدمها عند ارتباطها بالسؤال، ولا تخترع معلومات غير موجودة فيها:\n\n' +
+        memoryContext,
+    });
+  }
+}
 
     const {cleanCompletionParams, messageInfo} = await prepareCompletion({
       imageUris: imageUris || [],
