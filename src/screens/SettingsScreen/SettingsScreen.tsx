@@ -65,6 +65,7 @@ import {
   searchProviderStore,
   purchaseStore,
   voiceModeStore,
+  zicoStore,
 } from '../../store';
 import {authService} from '../../services';
 import type {SearchProviderId} from '../../services/search/types';
@@ -121,6 +122,7 @@ export const SettingsScreen: React.FC = observer(() => {
   const draftModelMenu = useMenuAnchor();
   const searchProviderMenu = useMenuAnchor();
   const [showHfTokenDialog, setShowHfTokenDialog] = useState(false);
+  const [showZicoTokenDialog, setShowZicoTokenDialog] = useState(false);
   const [showAuthSheet, setShowAuthSheet] = useState(false);
   const [showSearchKeySheet, setShowSearchKeySheet] = useState(false);
   const [gpuSupported, setGpuSupported] = useState(false);
