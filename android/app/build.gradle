@@ -182,6 +182,11 @@ android {
             // Effective applicationId: com.pocketpalai.e2e
             // Separate sandbox; installs side-by-side with prod.
         }
+        zico {
+            dimension "distribution"
+            applicationIdSuffix ".zico"
+            // Effective applicationId: com.pocketpalai.zico
+                }
     }
 
     // Keep the variant matrix narrow: only prodDebug, prodRelease,
@@ -194,14 +199,19 @@ android {
     variantFilter { variant ->
         def flavors = variant.flavors*.name
         def buildType = variant.buildType.name
+
         if (flavors.contains('e2e') && buildType == 'release') {
             setIgnore(true)
         }
+
         if (flavors.contains('prod') && buildType == 'releaseE2e') {
             setIgnore(true)
         }
+
+        if (flavors.contains('zico') && buildType == 'releaseE2e') {
+            setIgnore(true)
+        }
     }
-}
 
 tasks.withType(com.facebook.react.tasks.BundleHermesCTask).configureEach {
     inputs.property('plusStoreGate', providers.environmentVariable('PLUS_STORE_GATE').orElse(''))
