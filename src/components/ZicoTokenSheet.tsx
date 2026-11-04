@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import {Text, Button, Snackbar, TextInput} from 'react-native-paper';
 import {observer} from 'mobx-react-lite';
 
-import {Sheet} from '..';
+import {Sheet} from './Sheet';
 import {zicoStore} from '../store';
 
 interface ZicoTokenSheetProps {
