@@ -4,7 +4,7 @@ import {Text, Button, Snackbar, TextInput} from 'react-native-paper';
 import {observer} from 'mobx-react-lite';
 
 import {Sheet} from '..';
-import {zicoStore} from '../../store';
+import {zicoStore} from '../store';
 
 interface ZicoTokenSheetProps {
   isVisible: boolean;
