@@ -1,0 +1,50 @@
+name: Build Zico AI Android
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - zico-ai-integration
+    paths:
+      - 'android/**'
+      - 'src/**'
+      - '.github/workflows/zico-android.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.21.0'
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build Zico AI APK
+        working-directory: android
+        run: ./gradlew assembleZicoRelease
+
+      - name: Upload Zico AI APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Zico-AI-APK
+          path: android/app/build/outputs/apk/zico/release/*.apk
+          if-no-files-found: error
