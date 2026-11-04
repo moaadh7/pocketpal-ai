@@ -182,6 +182,10 @@ android {
             // Effective applicationId: com.pocketpalai.e2e
             // Separate sandbox; installs side-by-side with prod.
         }
+        zico {
+            dimension "distribution"
+            applicationIdSuffix ".zico"
+        }
     }
 
     // Keep the variant matrix narrow: only prodDebug, prodRelease,
