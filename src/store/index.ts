@@ -13,4 +13,4 @@ export * from './ASRStore';
 export * from './SearchProviderStore';
 export * from './PurchaseStore';
 export * from './VoiceModeStore';
-export * from './ZicoStore';
+import {zicoStore} from '../store';
