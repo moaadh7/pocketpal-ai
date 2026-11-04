@@ -25,6 +25,7 @@ export * from './FileMessage';
 export * from './HeaderRight';
 export * from './HeaderLeft';
 export * from './HFTokenSheet';
+export * from './ZicoTokenSheet';
 export * from './SearchProviderKeySheet';
 export * from './IncreaseContextSheet';
 export * from './GreetingBubble';
