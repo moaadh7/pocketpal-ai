@@ -42,6 +42,7 @@ import {
   Menu,
   Divider,
   HFTokenSheet,
+  ZicoTokenSheet,
   LanguageSelector,
   SearchProviderKeySheet,
   InputSlider,
@@ -1568,6 +1569,23 @@ export const SettingsScreen: React.FC = observer(() => {
                       : l10n.settings.setTokenButton}
                   </Button>
                 </View>
+                <Divider style={styles.divider} />
+<View style={styles.menuItemContainer}>
+  <View style={styles.menuItemTextContainer}>
+    <Text variant="titleMedium" style={styles.textLabel}>
+      Zico AI Memory
+    </Text>
+    <Text variant="labelSmall" style={styles.textDescription}>
+      {zicoStore.token ? 'Zico memory token is set' : 'Set your Zico memory token'}
+    </Text>
+  </View>
+  <Button
+    mode="outlined"
+    onPress={() => setShowZicoTokenDialog(true)}
+    style={styles.menuButton}>
+    {zicoStore.token ? 'Update' : 'Set Token'}
+  </Button>
+</View>
 
                 {/* Use HF Token Switch */}
                 <Divider style={styles.divider} />
@@ -1734,11 +1752,17 @@ export const SettingsScreen: React.FC = observer(() => {
           </Card>
         </ScrollView>
       </TouchableWithoutFeedback>
-      <HFTokenSheet
-        isVisible={showHfTokenDialog}
-        onDismiss={() => setShowHfTokenDialog(false)}
-        onSave={() => setShowHfTokenDialog(false)}
-      />
+<HFTokenSheet
+  isVisible={showHfTokenDialog}
+  onDismiss={() => setShowHfTokenDialog(false)}
+  onSave={() => setShowHfTokenDialog(false)}
+/>
+
+<ZicoTokenSheet
+  isVisible={showZicoTokenDialog}
+  onDismiss={() => setShowZicoTokenDialog(false)}
+  onSave={() => setShowZicoTokenDialog(false)}
+/>
       <SearchProviderKeySheet
         isVisible={showSearchKeySheet}
         providerId={activeSearchProviderId}
