@@ -66,7 +66,6 @@ import {
   searchProviderStore,
   purchaseStore,
   voiceModeStore,
-  zicoStore,
 } from '../../store';
 import {authService} from '../../services';
 import type {SearchProviderId} from '../../services/search/types';
