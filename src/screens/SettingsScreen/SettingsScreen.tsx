@@ -1748,15 +1748,7 @@ export const SettingsScreen: React.FC = observer(() => {
           </Card>
         </ScrollView>
       </TouchableWithoutFeedback>
-                    style={styles.menuButton}>
-                    {l10n.settings.exportButton}
-                  </Button>
-                </View>
-              </View>
-            </Card.Content>
-          </Card>
-        </ScrollView>
-      </TouchableWithoutFeedback>
+
       <HFTokenSheet
         isVisible={showHfTokenDialog}
         onDismiss={() => setShowHfTokenDialog(false)}
