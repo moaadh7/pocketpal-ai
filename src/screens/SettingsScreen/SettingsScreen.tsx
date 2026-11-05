@@ -1775,3 +1775,5 @@ export const SettingsScreen: React.FC = observer(() => {
     </SafeAreaView>
   );
 });
+
+// Zico settings test
