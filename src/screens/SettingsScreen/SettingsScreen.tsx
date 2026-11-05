@@ -355,6 +355,9 @@ export const SettingsScreen: React.FC = observer(() => {
       <ScrollView
         contentContainerStyle={styles.container}
         keyboardShouldPersistTaps="handled">
+          <Card elevation={0} style={styles.card}>
+            <Card.Title title={l10n.settings.modelInitializationSettings} />
+            <Card.Content>
 
 
 
