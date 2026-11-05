@@ -1575,7 +1575,7 @@ export const SettingsScreen: React.FC = observer(() => {
       Zico AI Memory
     </Text>
     <Text variant="labelSmall" style={styles.textDescription}>
-      {zicoStore.token ? 'Zico memory token is set' : 'Set your Zico memory token'}
+      Set your Zico memory token
     </Text>
   </View>
   <Button
