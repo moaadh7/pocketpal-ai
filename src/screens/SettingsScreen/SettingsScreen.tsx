@@ -1570,8 +1570,8 @@ export const SettingsScreen: React.FC = observer(() => {
                   </Button>
                 </View>
                 <Divider style={styles.divider} />
-<View style={styles.menuItemContainer}>
-  <View style={styles.menuItemTextContainer}>
+<View style={styles.switchContainer}>
+  <View style={styles.textContainer}>
     <Text variant="titleMedium" style={styles.textLabel}>
       Zico AI Memory
     </Text>
