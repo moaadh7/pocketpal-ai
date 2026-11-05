@@ -350,13 +350,7 @@ export const SettingsScreen: React.FC = observer(() => {
   const activeSearchProviderId = searchProviderStore.activeProviderId;
   const searchHasConsent = searchProviderStore.hasConsentedToSearch;
 
-if (true) {
-  return (
-    <SafeAreaView style={styles.safeArea} edges={['bottom']}>
-      <Text>Settings Test</Text>
-    </SafeAreaView>
-  );
-}
+
 
               <View style={styles.settingItemContainer}>
                 {/* Show full UI when multiple device options available */}
