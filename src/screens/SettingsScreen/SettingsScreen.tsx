@@ -349,6 +349,12 @@ export const SettingsScreen: React.FC = observer(() => {
   );
   const activeSearchProviderId = searchProviderStore.activeProviderId;
   const searchHasConsent = searchProviderStore.hasConsentedToSearch;
+  return (
+  <SafeAreaView style={styles.safeArea} edges={['bottom']}>
+    <TouchableWithoutFeedback onPress={handleOutsidePress} accessible={false}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        keyboardShouldPersistTaps="handled">
 
 
 
