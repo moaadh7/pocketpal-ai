@@ -350,17 +350,13 @@ export const SettingsScreen: React.FC = observer(() => {
   const activeSearchProviderId = searchProviderStore.activeProviderId;
   const searchHasConsent = searchProviderStore.hasConsentedToSearch;
 
+if (true) {
   return (
     <SafeAreaView style={styles.safeArea} edges={['bottom']}>
-      <TouchableWithoutFeedback onPress={handleOutsidePress} accessible={false}>
-        <ScrollView
-          contentContainerStyle={styles.container}
-          keyboardShouldPersistTaps="handled">
-          {/* Model Initialization Settings */}
-          <Card elevation={0} style={styles.card}>
-            <Card.Title title={l10n.settings.modelInitializationSettings} />
-            <Card.Content>
-              {/* Device Selection */}
+      <Text>Settings Test</Text>
+    </SafeAreaView>
+  );
+}
 
               <View style={styles.settingItemContainer}>
                 {/* Show full UI when multiple device options available */}
