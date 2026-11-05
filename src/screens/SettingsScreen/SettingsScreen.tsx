@@ -349,7 +349,7 @@ export const SettingsScreen: React.FC = observer(() => {
   );
   const activeSearchProviderId = searchProviderStore.activeProviderId;
   const searchHasConsent = searchProviderStore.hasConsentedToSearch;
-
+if (true) {
   return (
     <SafeAreaView style={styles.safeArea} edges={['bottom']}>
       <TouchableWithoutFeedback onPress={handleOutsidePress} accessible={false}>
