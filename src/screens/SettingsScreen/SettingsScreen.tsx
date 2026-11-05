@@ -1745,12 +1745,20 @@ export const SettingsScreen: React.FC = observer(() => {
           </Card>
         </ScrollView>
       </TouchableWithoutFeedback>
-<HFTokenSheet
-  isVisible={showHfTokenDialog}
-  onDismiss={() => setShowHfTokenDialog(false)}
-  onSave={() => setShowHfTokenDialog(false)}
-/>
-
+                    style={styles.menuButton}>
+                    {l10n.settings.exportButton}
+                  </Button>
+                </View>
+              </View>
+            </Card.Content>
+          </Card>
+        </ScrollView>
+      </TouchableWithoutFeedback>
+      <HFTokenSheet
+        isVisible={showHfTokenDialog}
+        onDismiss={() => setShowHfTokenDialog(false)}
+        onSave={() => setShowHfTokenDialog(false)}
+      />
       <SearchProviderKeySheet
         isVisible={showSearchKeySheet}
         providerId={activeSearchProviderId}
@@ -1771,5 +1779,3 @@ export const SettingsScreen: React.FC = observer(() => {
     </SafeAreaView>
   );
 });
-
-// Zico settings test
